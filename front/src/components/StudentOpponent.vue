@@ -18,7 +18,7 @@
                   <v-spacer></v-spacer>
                   <v-toolbar-items>
                     <v-text-field
-                    name="input-1-3"
+                    name="search"
                     label="Trouve un adversaire"
                     prepend-icon="search"
                     ></v-text-field>
