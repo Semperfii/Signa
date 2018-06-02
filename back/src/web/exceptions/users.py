@@ -1,7 +1,8 @@
+from web.exceptions import UsersError
 from ..config import logger
 
 
-class UserError(Exception):
+class TeacherError(UsersError):
     status_code = 400
 
     def __init__(self, message, status_code=None):
@@ -9,32 +10,22 @@ class UserError(Exception):
         self.message = message
         if status_code is not None:
             self.status_code = status_code
-        logger.critical('User error : {}'.format(message))
+        logger.critical('Teacher error : {}'.format(message))
 
     def to_dict(self):
         return {'error': self.message}
 
 
-class UserAlreadyRegistered(UserError):
+class TeacherAlreadyRegistered(TeacherError):
     def __init__(self):
-        UserError.__init__(self, 'This user is already registered.')
+        TeacherError.__init__(self, 'This teacher is already registered.')
 
 
-class UserNotExisting(UserError):
+class TeacherNotExisting(TeacherError):
     def __init__(self):
-        UserError.__init__(self, 'This user is not existing.')
+        TeacherError.__init__(self, 'This teacher does not exist.')
 
 
-class BadEmail(UserError):
+class NotATeacher(TeacherError):
     def __init__(self):
-        UserError.__init__(self, 'This email is not correct.')
-
-
-class UserNotAdmin(UserError):
-    def __init__(self):
-        UserError.__init__(self, 'This user has no right to do this.', 403)
-
-
-class NotConnected(UserError):
-    def __init__(self):
-        UserError.__init__(self, 'You are not connected', 403)
+        TeacherError.__init__(self, 'Vous n\'êtes pas un prof !')

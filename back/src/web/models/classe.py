@@ -1,12 +1,18 @@
 from peewee import *
 
 from .school import School
+from ..database import db
 
 
-class Classe:
+class Classe(Model):
     id = PrimaryKeyField()
-    grade = IntegerField()
+    name = CharField()
     school = ForeignKeyField(School)
 
     def get_data(self):
-        return {"id": self.id, "grade": self.grade, "school": self.school}
+        return {"id": self.id, "name": self.name, "school": self.school.get_data()}
+
+    class Meta:
+        database = db
+
+Classe.create_table(fail_silently=True)

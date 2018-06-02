@@ -9,19 +9,12 @@ class User(Model):
     last_name = CharField()
     email = CharField(unique=True, index=True)
     password = CharField()
-    _admin = IntegerField()
 
-    @property
-    def admin(self):
-        return bool(self._admin)
-
-    @admin.setter
-    def admin(self, val):
-        self._admin = int(val)
+    type = None
 
     def get_data(self):
         return {"id": self.id, "first_name": self.first_name, "last_name": self.last_name, "email": self.email,
-                "admin": bool(self._admin)}
+                "type": self.type}
 
     def get_small_data(self):
         return {"id": self.id, "first_name": self.first_name, "last_name": self.last_name}

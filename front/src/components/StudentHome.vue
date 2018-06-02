@@ -1,17 +1,5 @@
 <template>
   <div class="main">
-    <v-toolbar class="toolbar">
-      <v-toolbar-title>NOM Prénom</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-      <v-spacer></v-spacer>
-      <v-layout wrap justify-space-around align-center>
-        <v-avatar color="indigo">
-          <v-icon dark>account_circle</v-icon>
-        </v-avatar>
-      </v-layout>
-      </v-toolbar-items>
-    </v-toolbar>
     <div class="cardContainer">
       <v-card class="cards">
         <v-container
@@ -43,6 +31,13 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      dialog: false
+    };
+  }
+};
 </script>
 
 <style>
@@ -58,5 +53,15 @@
 .white--text {
   width: 48vw;
   height: 20vh;
+}
+
+.dialog {
+  display: flex;
+  justify-content: space-around;
+  width: 28vw;
+}
+
+.icon {
+  margin-left: 1vw;
 }
 </style>

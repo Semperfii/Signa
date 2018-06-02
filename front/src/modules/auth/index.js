@@ -16,7 +16,7 @@ function login(context, email, password) {
         localStorage.setItem('access_token', response.data.access_token);
         localStorage.setItem('refresh_token', response.data.refresh_token);
         checkAuth().then(() => {
-          router.push('/main');
+         router.push("/" + user.home + "/home");
         });
       } else {
         context.error = true;
@@ -77,6 +77,13 @@ function checkAuth() {
           } else {
             localStorage.setItem('profile', JSON.stringify(response.data));
             user.profile = response.data;
+            if (user.profile.type === 0) {
+              user.home = "student";
+            } else if (user.profile.type === 1) {
+              user.home = "teacher";
+            } else if (user.profile.type === 2) {
+              user.home = "parent";
+            }
             resolve();
           }
         })

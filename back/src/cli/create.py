@@ -13,32 +13,31 @@ def create():
 @click.option('--password', prompt=True)
 @click.option('--firstname', prompt=True)
 @click.option('--lastname', prompt=True)
-@click.option('--admin/--no-admin', default=False)
-def user(mail, password, firstname, lastname, admin):
-    from web.managers import UsersManager, UserAlreadyRegistered
-    manager = UsersManager()
+@click.option('--classe', prompt=True)
+def student(mail, password, firstname, lastname, classe):
+    from web.managers import StudentsManager
+    from web.exceptions import StudentAlreadyRegistered
+    manager = StudentsManager()
     try:
-        manager.create_user(mail, password, firstname, lastname, admin)
-    except UserAlreadyRegistered:
-        click.echo('User {} already registered'.format(mail))
+        manager.add_student(mail, password, firstname, lastname, classe)
+    except StudentAlreadyRegistered:
+        click.echo('Student {} already registered'.format(mail))
 
 
 @create.command()
-@click.option('--playerA', prompt=True)
-@click.option('--playerB', prompt=True)
-@click.option('--playerC', prompt=True)
-@click.option('--playerD', prompt=True)
-@click.option('--scoreAB', prompt=True)
-@click.option('--scoreCD', prompt=True)
-def match(playerA, playerB, playerC, playerD, scoreAB, scoreCD):
-    from web.managers import MatchsManager
-    manager = MatchsManager(user_id=0)
-    body = {
-        'playerA': playerA,
-        'playerB': playerB,
-        'playerC': playerC,
-        'playerD': playerD,
-        'scoreAB': scoreAB,
-        'scoreCD': scoreCD
-    }
-    manager.add_match(body)
+@click.option('--name', prompt=True)
+def school(name):
+    from web.models import School
+    from web.database import db
+    with db.transaction():
+        School.create(name=name)
+
+
+@create.command()
+@click.option('--name', prompt=True)
+@click.option('--school', prompt=True)
+def classe(name, school):
+    from web.models import Classe
+    from web.database import db
+    with db.transaction():
+        Classe.create(name=name, school=school)

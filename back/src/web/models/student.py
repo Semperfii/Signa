@@ -1,15 +1,20 @@
 from peewee import *
 
+from ..models import User
 from .classe import Classe
 
 
-class Student:
-    id = PrimaryKeyField()
-    name = CharField()
-    surname = CharField()
+class Student(User):
     classe = ForeignKeyField(Classe)
+    score = FloatField()
+    xp = FloatField()
+
+    type = 0
 
     def get_data(self):
-        return {"id": self.id, "name": self.name, "surname": self.surname, "class": self.classe.get_data()}
+        dict = super(Student, self).get_data()
+        dict["class"] = self.classe.get_data()
+        return dict
 
 
+Student.create_table(fail_silently=True)

@@ -1,12 +1,10 @@
-from peewee import *
-
-from .student import Student
+from web.models import User
 
 
-class Parent:
-    id = PrimaryKeyField()
-    name = CharField()
-    surname = CharField()
+class Parent(User):
+    type = 2
 
-    def get_data(self):
-        return {"id": self.id, "name": self.name, "surname": self.surname}
+    pass
+
+
+Parent.create_table(fail_silently=True)
