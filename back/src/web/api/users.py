@@ -1,9 +1,8 @@
 from flask_jwt_extended import jwt_required
 from flask_restful import Resource, request
 
-from ..managers import UsersManager, MatchsManager
+from ..managers import UsersManager
 from ..config import logger
-from ..compute.scoring import compute_scoring
 
 
 class Users(Resource):
@@ -18,14 +17,9 @@ class Users(Resource):
         :return: list of users
         """
         search = request.args.get('search', None)
-        score = request.args.get('score', False)
-        max = request.args.get('max', None)
         userManager = UsersManager()
         users = userManager.get_all(search=search, max=max)
-        if score:
-            match_manager = MatchsManager()
-            users = compute_scoring(users, match_manager.get_all())
-        logger.debug('Get on /users called. Search : {}. Score : {}'.format(search, score))
+        logger.debug('Get on /users called. Search : {}.'.format(search))
         return users
 
 
