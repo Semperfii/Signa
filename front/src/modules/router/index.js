@@ -6,6 +6,7 @@ import Main from "@/components/Main";
 import AddMatch from "@/components/AddMatch";
 import StudentHome from "@/components/StudentHome";
 import StudentTopics from "@/components/StudentTopics";
+import ParentStatistic from '@/components/ParentStatistic'
 
 Vue.use(Router);
 
@@ -40,6 +41,11 @@ export default new Router({
       path: "/student/topics",
       name: "Student/topics",
       component: StudentTopics
+    },
+    {
+      path: '/parent/statistic',
+      name: "ParentStatistic",
+      component: ParentStatistic
     }
   ]
 });
