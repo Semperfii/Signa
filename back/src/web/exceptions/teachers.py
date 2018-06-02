@@ -23,3 +23,8 @@ class TeacherAlreadyRegistered(TeacherError):
 class TeacherNotExisting(TeacherError):
     def __init__(self):
         TeacherError.__init__(self, 'This teacher does not exist.')
+
+
+class NotATeacher(TeacherError):
+    def __init__(self):
+        TeacherError.__init__(self, 'Vous n\'êtes pas un prof !')

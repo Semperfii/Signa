@@ -1,26 +1,26 @@
 from flask_jwt_extended import jwt_required
 from flask_restful import Resource, request
 
-from ..managers import UsersManager
+from ..managers import StudentsManager
 from ..config import logger
 
 
-class Users(Resource):
+class Students(Resource):
     """
-    Manage the users in the database
+    Manage the students in the database
     """
 
     @jwt_required
     def get(self):
         """
-        Get the list of users in signa
-        :return: list of users
+        Get the list of students in signa
+        :return: list of students
         """
         search = request.args.get('search', None)
-        userManager = UsersManager()
-        users = userManager.get_all(search=search, max=max)
-        logger.debug('Get on /users called. Search : {}.'.format(search))
-        return users
+        userManager = StudentsManager()
+        students = userManager.get_all(search=search, max=max)
+        logger.debug('Get on /students called. Search : {}.'.format(search))
+        return students
 
 
 class User(Resource):
@@ -34,6 +34,6 @@ class User(Resource):
         Get an user by its id
         :return: the user demanded
         """
-        logger.debug('Get on /users/:id called.')
-        userManager = UsersManager()
+        logger.debug('Get on /students/:id called.')
+        userManager = StudentsManager()
         return userManager.get(user_id)

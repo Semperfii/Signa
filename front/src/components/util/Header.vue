@@ -53,7 +53,6 @@
 <script>
 import auth from "../../modules/auth/index";
 
-<<<<<<< HEAD
   export default {
     name: 'Header',
     data() {
@@ -73,29 +72,6 @@ import auth from "../../modules/auth/index";
       auth.checkAuth().then(() => {
         header.name = auth.user.profile.first_name + " " + auth.user.profile.last_name;
       }).catch((err) => {
-=======
-export default {
-  name: "Header",
-  data() {
-    return {
-      name: null
-    };
-  },
-  methods: {
-    logout() {
-      auth.logout();
-    }
-  },
-  created() {
-    let header = this;
-
-    auth
-      .checkAuth()
-      .then(() => {
-        header.name = auth.user.profile.first_name;
-      })
-      .catch(err => {
->>>>>>> teacher_dashboard
         console.log(err);
       });
   }

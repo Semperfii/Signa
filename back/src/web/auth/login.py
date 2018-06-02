@@ -1,17 +1,17 @@
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_refresh_token_required
 
-from ..managers import UsersManager
-from ..exceptions.users import *
+from ..managers import TeachersManager, StudentsManager
+from ..exceptions import *
 
 
-def admin_only(func):
+def teacher_only(func):
     def success(user):
         me = get_jwt_identity()
         if me and me['admin']:
             return func(user)
         else:
-            raise UserNotAdmin
+            raise NotATeacher
 
     return success
 
@@ -20,7 +20,7 @@ def create_auth(app):
     jwt = JWTManager(app)
     auth_bp = Blueprint('login', __name__)
 
-    @auth_bp.errorhandler(UserError)
+    @auth_bp.errorhandler(Exception)
     def handle_invalid_usage(error):
         response = jsonify(error.to_dict())
         response.status_code = error.status_code
@@ -45,8 +45,18 @@ def create_auth(app):
         if not password:
             return jsonify({"msg": "Missing password parameter"}), 400
 
-        users_manager = UsersManager()
-        user = users_manager.check_user_auth(email, password)
+        user = None
+
+        teacher_manager = TeachersManager()
+        teacher = teacher_manager.check_user_auth(email, password)
+        if teacher is not None:
+            user = teacher
+
+        student_manager = StudentsManager()
+        student = student_manager.check_user_auth(email, password)
+        if student is not None:
+            user = student
+
         if user is None:
             return jsonify({"msg": "Bad username or password"}), 401
 
