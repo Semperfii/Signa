@@ -1,7 +1,7 @@
 from peewee import *
 
 
-class School:
+class School(Model):
     id = PrimaryKeyField()
     name = CharField()
 

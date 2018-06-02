@@ -1,8 +1,11 @@
 from peewee import *
+from ..database import db
 
 
-class Result:
+class ResultQuizz:
     id_student = IntegerField()
     id_question = IntegerField()
     outcome = BooleanField()
-    time = TimeField()
+
+    class Meta:
+        database = db
