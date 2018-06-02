@@ -1,13 +1,4 @@
 {
-  "oauth": {
-    "CLIENT_ID": "",
-    "CLIENT_SECRET": "",
-    "auth_url": "https://auth.viarezo.fr/oauth/authorize",
-    "token_url": "https://auth.viarezo.fr/oauth/token",
-    "base_url": "https://auth.viarezo.fr/api/",
-    "me_path": "user/show/me",
-    "callback_url": "http://localhost:5000/auth/callback"
-  },
   "database": {
     "host": "localhost",
     "user": "signa",
@@ -17,7 +8,6 @@
   "flask": {
     "debug": true,
     "jwt_secret": "QW3JBwjhh/mzQFx/kSarUR6s0FlXjRsM6DsbJ65Ttmg=",
-    "oauth_secret": "TudaHTIRFOksack23=oCAOE",
     "jwt_expiration": 2592000
   }
 }

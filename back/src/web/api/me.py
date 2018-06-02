@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from web.managers.users import UsersManager
+from ..managers.users import UsersManager
 
 
 @jwt_required
