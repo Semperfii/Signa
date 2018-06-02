@@ -4,18 +4,12 @@
       <v-flex xs12 sm6 offset-sm3>
         <img src="../../assets/title.png" id="title">
 
-        <v-card flat id="card">
+        <v-card flat id="card" color="transparent">
           <v-card-title primary-title>
             <div class="text">
-              <div class="display-2">Bienvenue</div><v-divider></v-divider><br/>
-              <p class="grey--text body-2"><b>signa</b> est le site de League de Bière-Pong de CentraleSupéléc, developpé en collaboration avec l'<b>AdR</b>.</p>
-
+              <v-text-field name="email" label="Email"></v-text-field>
+              <v-text-field name="password" type="password" label="Mot de passe"></v-text-field>
               <v-btn block color="primary" v-on:click="login" id="connect">Se connecter</v-btn>
-
-              <div class="display-1">Concept</div><v-divider></v-divider><br/>
-              <p class="grey--text body-2">Rentrez chaque match que vous disputez en indiquant votre partenaire et vos adversaires ainsi que le score final.
-            Suivant ce score, un nombre de point est attribué à chaque équipe et un classement est determiné en temps réel.
-            En cas de litige, une notification est envoyée aux adversaires qui pourront contester le match.</p>
             </div>
           </v-card-title>
         </v-card>
@@ -49,6 +43,8 @@
   .login {
     width: 100%;
     text-align: center;
+    background-image: url('../../assets/background.png');
+    min-height: 100vh;
   }
 
   #title {
@@ -58,7 +54,7 @@
   }
 
   #card {
-    margin: 2em;
+    margin: 4em;
   }
 
   .text {
