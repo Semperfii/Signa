@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import auth from "../../modules/auth/index";
+  import auth from "../../modules/auth/index";
 
   export default {
     name: 'Header',
@@ -68,30 +68,30 @@ import auth from "../../modules/auth/index";
     },
     created() {
       let header = this;
-
+      
       auth.checkAuth().then(() => {
         header.name = auth.user.profile.first_name + " " + auth.user.profile.last_name;
       }).catch((err) => {
         console.log(err);
       });
-  }
-};
+    }
+  };
 </script>
 
 <style scoped>
-.header {
-  margin: 0.5em;
-}
-
-@media (min-width: 960px) {
   .header {
-    margin: 2em;
+    margin: 0.5em;
   }
-}
 
-.toolbar__title,
-.toolbar__title a,
-.toolbar__title a img {
-  height: 100%;
-}
+  @media (min-width: 960px) {
+    .header {
+      margin: 2em;
+    }
+  }
+
+  .toolbar__title,
+  .toolbar__title a,
+  .toolbar__title a img {
+    height: 100%;
+  }
 </style>

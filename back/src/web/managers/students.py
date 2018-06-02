@@ -1,3 +1,4 @@
+from web.models.classe import Classe
 from ..database import db
 from ..models import Student
 from ..exceptions import *
@@ -13,6 +14,7 @@ class StudentsManager:
         self.db = db
         self.db.connect(reuse_if_open=True)
         Student.create_table(fail_silently=True)
+        Classe.create_table(fail_silently=True)
 
     def __del__(self):
         self.db.close()
@@ -23,8 +25,8 @@ class StudentsManager:
             query = Student.select()
         else:
             query = Student.select().where(
-                (Student.name.contains(search)) |
-                (Student.surname.contains(search))
+                (Student.first_name.contains(search)) |
+                (Student.last_name.contains(search))
             )
         for student in query:
             students.append(model_to_dict(student))
@@ -53,7 +55,8 @@ class StudentsManager:
                     email=email,
                     password=password,
                     classe=classe,
-                    score=0.
+                    score=0.,
+                    xp=0.
                 )
                 return student
             except IntegrityError:
