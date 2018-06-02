@@ -14,7 +14,7 @@ class Users(Resource):
     @jwt_required
     def get(self):
         """
-        Get the list of users in BPLeague
+        Get the list of users in signa
         :return: list of users
         """
         search = request.args.get('search', None)

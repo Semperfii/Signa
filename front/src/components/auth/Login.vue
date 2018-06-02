@@ -8,7 +8,7 @@
           <v-card-title primary-title>
             <div class="text">
               <div class="display-2">Bienvenue</div><v-divider></v-divider><br/>
-              <p class="grey--text body-2"><b>BPLeague</b> est le site de League de Bière-Pong de CentraleSupéléc, developpé en collaboration avec l'<b>AdR</b>.</p>
+              <p class="grey--text body-2"><b>signa</b> est le site de League de Bière-Pong de CentraleSupéléc, developpé en collaboration avec l'<b>AdR</b>.</p>
 
               <v-btn block color="primary" v-on:click="login" id="connect">Se connecter</v-btn>
 

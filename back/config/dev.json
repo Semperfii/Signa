@@ -10,8 +10,8 @@
   },
   "database": {
     "host": "localhost",
-    "user": "bpleague",
-    "password": "bpleague"
+    "user": "signa",
+    "password": "signa"
   },
   "log": "DEBUG",
   "flask": {

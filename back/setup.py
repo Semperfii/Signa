@@ -11,14 +11,14 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name='bpleague',
+    name='signa',
     version='0.1.0',
     license='BSD',
-    description='The web package for BPLeague.',
-    long_description='The web package for BPLeague.',
+    description='The web package for signa.',
+    long_description='The web package for signa.',
     author='Alexis *fuego* Tacnet',
     author_email='alexistacnet@gmail.com',
-    url='https://github.com/fuegowolf/BPLeague',
+    url='https://github.com/fuegowolf/signa',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
@@ -56,6 +56,6 @@ setup(
     extras_require={},
     entry_points='''
         [console_scripts]
-        bpleague=cli:cli
+        signa=cli:cli
     '''
 )

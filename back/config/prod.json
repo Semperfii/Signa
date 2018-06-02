@@ -6,11 +6,11 @@
     "token_url": "https://auth.viarezo.fr/oauth/token",
     "base_url": "https://auth.viarezo.fr/api/",
     "me_path": "user/show/me",
-    "callback_url": "https://bpleague.cs-campus.fr/#/auth/callback"
+    "callback_url": "https://signa.cs-campus.fr/#/auth/callback"
   },
   "database": {
     "host": "postgres",
-    "user": "bpleague",
+    "user": "signa",
     "password": ""
   },
   "log": "INFO",

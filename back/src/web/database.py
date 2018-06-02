@@ -3,8 +3,8 @@ from peewee import PostgresqlDatabase
 from .config import config
 
 db = PostgresqlDatabase(
-    'bpleague',
-    user=config['database'].get('user', 'bpleague'),
-    password=config['database'].get('password', 'bpleague'),
+    'signa',
+    user=config['database'].get('user', 'signa'),
+    password=config['database'].get('password', 'signa'),
     host=config['database'].get('host', 'localhost')
 )

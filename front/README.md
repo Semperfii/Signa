@@ -1,6 +1,6 @@
-# bpleague
+# signa
 
-> The front package for BPLeague.
+> The front package for signa.
 
 ## Build Setup
 

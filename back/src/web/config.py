@@ -29,7 +29,7 @@ logger.addHandler(stream_handler)
 
 if not os.path.exists('../volumes/logs'):
     os.makedirs('../volumes//logs')
-file_handler = logging.FileHandler('../volumes//logs/bpleague.log')
+file_handler = logging.FileHandler('../volumes//logs/signa.log')
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
@@ -39,6 +39,6 @@ if log_level == 'DEBUG':
 else:
     logger.setLevel(logging.INFO)
 
-logger = logging.getLogger('bpleague')
+logger = logging.getLogger('signa')
 
 version = '0.1.0'

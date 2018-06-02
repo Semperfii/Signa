@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout column>
         <v-flex xs12 md8 offset-md2>
-          <bpleague-notification v-for="notification in notifications" :key="notification.id" :notification="notification" :snackbar="snackbar"></bpleague-notification>
+          <signa-notification v-for="notification in notifications" :key="notification.id" :notification="notification" :snackbar="snackbar"></signa-notification>
         </v-flex>
         <v-flex xs12 md8 offset-md2>
           <v-card class="card--flex-toolbar">
@@ -63,7 +63,7 @@
   export default {
     name: 'Main',
     components: {
-      bpleagueNotification: Notification
+      signaNotification: Notification
     },
     data() {
       return {

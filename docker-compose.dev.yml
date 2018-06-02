@@ -4,8 +4,8 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      - POSTGRES_USER=bpleague
-      - POSTGRES_PASSWORD=bpleague
+      - POSTGRES_USER=signa
+      - POSTGRES_PASSWORD=signa
     volumes:
       - ./volumes/postgres:/var/lib/postgresql/data
     ports:

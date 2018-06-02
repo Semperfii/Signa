@@ -1,7 +1,7 @@
 {
-  "name": "bpleague",
+  "name": "signa",
   "version": "1.0.0",
-  "description": "The front package for BPLeague.",
+  "description": "The front package for signa.",
   "author": "Alexis Tacnet <alexistacnet@gmail.com>",
   "private": true,
   "scripts": {

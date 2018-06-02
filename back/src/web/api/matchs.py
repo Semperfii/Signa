@@ -13,7 +13,7 @@ class Matchs(Resource):
     @jwt_required
     def get(self):
         """
-        Get the list of matchs in BPLeague
+        Get the list of matchs in signa
         :return: list of matchs
         """
         me_id = get_jwt_identity()['id']
@@ -24,7 +24,7 @@ class Matchs(Resource):
     @jwt_required
     def put(self):
         """
-        Put a in BPLeague
+        Put a in signa
         :return: message
         """
         me_id = get_jwt_identity()['id']

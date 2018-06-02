@@ -4,27 +4,27 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      - POSTGRES_USER=bpleague
-      - POSTGRES_PASSWORD=bpleague
+      - POSTGRES_USER=signa
+      - POSTGRES_PASSWORD=signa
     volumes:
       - ./volumes/postgres:/var/lib/postgresql/data
 
-  bpleague-back:
+  signa-back:
     build: ./back/
     volumes:
       - ./volumes/logs:/logs
     environment:
-      - VIRTUAL_HOST=api.bpleague.cs-campus.fr
-      - LETSENCRYPT_HOST=api.bpleague.cs-campus.fr
+      - VIRTUAL_HOST=api.signa.cs-campus.fr
+      - LETSENCRYPT_HOST=api.signa.cs-campus.fr
       - LETSENCRYPT_EMAIL=alexistacnet@gmail.com
 
-  bpleague-front:
+  signa-front:
     image: nginx:latest
     volumes:
       - ./front/dist:/usr/share/nginx/html:ro
     environment:
-      - VIRTUAL_HOST=bpleague.cs-campus.fr
-      - LETSENCRYPT_HOST=bpleague.cs-campus.fr
+      - VIRTUAL_HOST=signa.cs-campus.fr
+      - LETSENCRYPT_HOST=signa.cs-campus.fr
       - LETSENCRYPT_EMAIL=alexistacnet@gmail.com
 
   proxy:
