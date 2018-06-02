@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/front/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/assets" />
       <excludeFolder url="file://$MODULE_DIR$/back/venv" />
-      <excludeFolder url="file://$MODULE_DIR$/front/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/volumes" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.6 (Signa)" jdkType="Python SDK" />

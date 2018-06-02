@@ -1,15 +1,12 @@
 from peewee import *
-from ..database import db
+
+from ..models.user import User
 
 
-class Teacher:
-    id = PrimaryKeyField()
-    name = CharField()
-    surname = CharField()
+class Teacher(User):
     subject = CharField()
 
     def get_data(self):
-        return {"id": self.id, "name": self.name, "surname": self.surname, "subject": self.subject}
-
-    class Meta:
-        database = db
+        dict = super.get_data()
+        dict["subject"] = self.subject
+        return dict

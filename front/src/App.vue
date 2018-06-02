@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="uk-background-default">
     <v-app>
-      <bp-header v-if="$route.path.includes('main')"></bp-header>
+      <bp-header v-if="$route.name !== 'Login'"></bp-header>
       <router-view/>
     </v-app>
   </div>

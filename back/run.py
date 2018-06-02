@@ -1,4 +1,4 @@
-from src.web import create_app, logger
+from web import create_app, logger
 
 app = create_app()
 
