@@ -2,10 +2,10 @@ import Vue from "vue";
 import Router from "vue-router";
 import Login from "@/components/auth/Login";
 import StudentHome from "@/components/StudentHome";
-import StudentTopics from "@/components/StudentTopics";
-import ParentStatistic from '@/components/ParentStatistic'
+import ParentStatistic from "@/components/ParentStatistic";
 import StudentQuestion from "@/components/StudentQuestion";
 import TeacherHome from "@/components/TeacherHome";
+import StudentOpponent from "@/components/StudentOpponent";
 
 Vue.use(Router);
 
@@ -22,11 +22,6 @@ export default new Router({
       component: StudentHome
     },
     {
-      path: "/student/topics",
-      name: "Student/topics",
-      component: StudentTopics
-    },
-    {
       path: "/student/question",
       name: "StudentQuestion",
       component: StudentQuestion
@@ -37,9 +32,14 @@ export default new Router({
       component: TeacherHome
     },
     {
-      path: '/parent/statistic',
+      path: "/parent/statistic",
       name: "ParentStatistic",
       component: ParentStatistic
+    },
+    {
+      path: "/student/opponent",
+      name: "StudentOpponent",
+      component: StudentOpponent
     }
   ]
 });

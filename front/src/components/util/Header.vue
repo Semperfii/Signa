@@ -66,7 +66,7 @@
         auth.logout();
       }
     },
-    created() {
+    /*created() {
       let header = this;
 
       auth.checkAuth().then(() => {
@@ -74,7 +74,7 @@
       }).catch((err) => {
         console.log(err);
       });
-    }
+    }*/
   };
 </script>
 
