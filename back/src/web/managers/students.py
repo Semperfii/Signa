@@ -52,7 +52,8 @@ class StudentsManager:
                     last_name=last_name,
                     email=email,
                     password=password,
-                    classe=classe
+                    classe=classe,
+                    score=0.
                 )
                 return student
             except IntegrityError:

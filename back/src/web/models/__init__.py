@@ -5,3 +5,4 @@ from .parent import Parent
 from .result_solo import ResultSolo
 from .result_duel import ResultDuel
 from .result_quizz import ResultQuizz
+from .question import Question
