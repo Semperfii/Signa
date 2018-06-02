@@ -7,6 +7,7 @@ class ResultDuel:
     id_student_2 = IntegerField()
     score_1 = IntegerField()
     score_2 = IntegerField()
+    id_question = IntegerField()
 
     class Meta:
         database = db
