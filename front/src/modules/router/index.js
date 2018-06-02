@@ -6,6 +6,7 @@ import StudentTopics from "@/components/StudentTopics";
 import ParentStatistic from '@/components/ParentStatistic'
 import StudentQuestion from "@/components/StudentQuestion";
 import TeacherHome from "@/components/TeacherHome";
+import DuelAnimation from "@/components/DuelAnimation";
 
 Vue.use(Router);
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/parent/statistic',
       name: "ParentStatistic",
       component: ParentStatistic
+    },
+    {
+      path: '/duel/animation',
+      name: "DuelAnimation",
+      component: DuelAnimation
     }
   ]
 });
