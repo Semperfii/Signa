@@ -23,8 +23,8 @@ class StudentsManager:
             query = Student.select()
         else:
             query = Student.select().where(
-                (Student.name.contains(search)) |
-                (Student.surname.contains(search))
+                (Student.first_name.contains(search)) |
+                (Student.last_name.contains(search))
             )
         for student in query:
             students.append(model_to_dict(student))
@@ -53,7 +53,8 @@ class StudentsManager:
                     email=email,
                     password=password,
                     classe=classe,
-                    score=0.
+                    score=0.,
+                    xp=0.
                 )
                 return student
             except IntegrityError:

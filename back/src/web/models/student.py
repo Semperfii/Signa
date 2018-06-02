@@ -7,6 +7,7 @@ from .classe import Classe
 class Student(User):
     classe = ForeignKeyField(Classe)
     score = FloatField()
+    xp = FloatField()
 
     def get_data(self):
         dict = super.get_data()
