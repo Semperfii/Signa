@@ -32,7 +32,7 @@ def create_auth(app):
         access_token = create_access_token(identity=current_user)
         return jsonify(access_token=access_token), 200
 
-    @app.route('/login', methods=['POST'])
+    @auth_bp.route('/login', methods=['POST'])
     def login():
         if not request.is_json:
             return jsonify({"msg": "Missing JSON in request"}), 400
