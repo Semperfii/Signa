@@ -5,13 +5,27 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
       <v-spacer></v-spacer>
-      <v-layout wrap justify-space-around align-center>
-        <v-btn icon>
-          <v-avatar color="indigo">
-            <v-icon dark>account_circle</v-icon>
-          </v-avatar>
-        </v-btn>
-      </v-layout>
+        <v-layout wrap justify-space-around align-center>
+          <v-btn icon @click="dialog = true">
+            <v-avatar color="indigo">
+              <v-icon dark style="margin-left: 0">account_circle</v-icon>
+            </v-avatar>
+          </v-btn>
+          <v-dialog v-model="dialog">
+            <v-card class="dialog">
+              <v-card-actions>
+                <v-btn color="secondary">
+                  <span>Modifier le profil</span>
+                  <v-icon>create</v-icon>
+                </v-btn>
+                <v-btn color="primary">
+                  <span>Se déconnecter</span>
+                  <v-icon>exit_to_app</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-layout>
       </v-toolbar-items>
     </v-toolbar>
     <div class="cardContainer">
@@ -50,7 +64,8 @@ export default {
       { id: 3, title: "Musique", flex: 6 },
       { id: 4, title: "Physique-Chimie", flex: 6 },
       { id: 5, title: "Science et Vie", flex: 6 }
-    ]
+    ],
+    dialog: false
   })
 };
 </script>
@@ -70,5 +85,15 @@ export default {
   display: flex;
   width: 22vw;
   height: 10vh;
+}
+
+.dialog {
+  display: flex;
+  justify-content: space-around;
+  width: 28vw;
+}
+
+.icon {
+  margin-left: 1vw;
 }
 </style>

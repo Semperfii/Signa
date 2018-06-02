@@ -27,44 +27,49 @@
 </template>
 
 <script>
-  import auth from "../../modules/auth/index";
+import auth from "../../modules/auth/index";
 
-  export default {
-    name: 'Header',
-    data() {
-      return {
-        name: null
-      }
-    },
-    methods: {
-      logout() {
-        auth.logout();
-      }
-    },
-    created() {
-      let header = this;
+export default {
+  name: "Header",
+  data() {
+    return {
+      name: null
+    };
+  },
+  methods: {
+    logout() {
+      auth.logout();
+    }
+  },
+  created() {
+    let header = this;
 
-      auth.checkAuth().then(() => {
+    auth
+      .checkAuth()
+      .then(() => {
         header.name = auth.user.profile.first_name;
-      }).catch((err) => {
+      })
+      .catch(err => {
         console.log(err);
       });
-    }
   }
+};
 </script>
 
 <style scoped>
+.header {
+  margin: 0.5em;
+}
+
+@media (min-width: 960px) {
   .header {
-    margin: 0.5em;
+    margin: 2em;
   }
+}
 
-  @media (min-width: 960px) {
-    .header {
-      margin: 2em;
-    }
-  }
-
-  .toolbar__title, .toolbar__title a, .toolbar__title a img {
-    height: 100%;
-  }
+.toolbar__title,
+.toolbar__title a,
+.toolbar__title a img {
+  height: 100%;
+}
 </style>
