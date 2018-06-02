@@ -7,3 +7,6 @@ class Classe:
     id = PrimaryKeyField()
     grade = IntegerField()
     school = ForeignKeyField(School)
+
+    def get_data(self):
+        return {"id": self.id, "grade": self.grade, "school": self.school}
