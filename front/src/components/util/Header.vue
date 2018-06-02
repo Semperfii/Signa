@@ -51,8 +51,9 @@
 </template>
 
 <script>
-  import auth from "../../modules/auth/index";
+import auth from "../../modules/auth/index";
 
+<<<<<<< HEAD
   export default {
     name: 'Header',
     data() {
@@ -72,24 +73,49 @@
       auth.checkAuth().then(() => {
         header.name = auth.user.profile.first_name + " " + auth.user.profile.last_name;
       }).catch((err) => {
+=======
+export default {
+  name: "Header",
+  data() {
+    return {
+      name: null
+    };
+  },
+  methods: {
+    logout() {
+      auth.logout();
+    }
+  },
+  created() {
+    let header = this;
+
+    auth
+      .checkAuth()
+      .then(() => {
+        header.name = auth.user.profile.first_name;
+      })
+      .catch(err => {
+>>>>>>> teacher_dashboard
         console.log(err);
       });
-    }
   }
+};
 </script>
 
 <style scoped>
+.header {
+  margin: 0.5em;
+}
+
+@media (min-width: 960px) {
   .header {
-    margin: 0.5em;
+    margin: 2em;
   }
+}
 
-  @media (min-width: 960px) {
-    .header {
-      margin: 2em;
-    }
-  }
-
-  .toolbar__title, .toolbar__title a, .toolbar__title a img {
-    height: 100%;
-  }
+.toolbar__title,
+.toolbar__title a,
+.toolbar__title a img {
+  height: 100%;
+}
 </style>
