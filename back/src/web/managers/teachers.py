@@ -1,8 +1,10 @@
 from peewee import DoesNotExist, IntegrityError
 from playhouse.shortcuts import model_to_dict
+import re
 
-from back.web.exceptions import *
-from back.web.models import Teacher
+from ..models import Teacher
+from ..exceptions import *
+
 from ..database import db
 
 
@@ -22,8 +24,8 @@ class TeachersManager:
             query = Teacher.select()
         else:
             query = Teacher.select().where(
-                (Teacher.name.contains(search)) |
-                (Teacher.surname.contains(search))
+                (Teacher.first_name.contains(search)) |
+                (Teacher.last_name.contains(search))
             )
         for teacher in query:
             teachers.append(model_to_dict(teacher))
@@ -40,10 +42,16 @@ class TeachersManager:
         except DoesNotExist:
             raise TeacherNotExisting
 
-    def add_teacher(self, name, surname, subject, classes, admin=False):
+    def add_teacher(self, email, password, first_name, last_name, subject, classes, admin=False):
+        if re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email) is None:
+            raise BadEmail
         with self.db.atomic():
             try:
-                teacher = Teacher.create(name=name, surname=surname, subject=subject)
+                teacher = Teacher.create(first_name=first_name,
+                                         last_name=last_name,
+                                         email=email,
+                                         password=password,
+                                         subject=subject)
                 return teacher
             except IntegrityError:
                 raise TeacherAlreadyRegistered
@@ -54,6 +62,14 @@ class TeachersManager:
     def del_teacher_table(self):
         with self.db.atomic():
             Teacher.drop_table()
+
+    def check_user_auth(self, email, password):
+        with self.db.transaction():
+            teachers = Teacher.select().where(Teacher.email == email, Teacher.password == password)
+            if len(teachers) > 0:
+                return teachers[0].get_data()
+            else:
+                return None
 
     def get_classes(self):
         pass
