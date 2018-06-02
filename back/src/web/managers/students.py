@@ -55,7 +55,7 @@ class StudentsManager:
                     classe=classe,
                     score=0.,
                     xp=0.
-                )
+                    )
                 return student
             except IntegrityError:
                 raise StudentAlreadyRegistered

@@ -55,9 +55,6 @@ class ParentsManager:
             except IntegrityError:
                 raise ParentAlreadyRegistered
 
-    def del_parent(self):
-        pass
-
     def del_parent_table(self):
         with self.db.atomic():
             Parent.drop_table()

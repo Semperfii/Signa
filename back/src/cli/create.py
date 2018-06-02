@@ -1,6 +1,6 @@
 import click
 
-from .cli import cli
+from cli import cli
 
 
 @cli.group()

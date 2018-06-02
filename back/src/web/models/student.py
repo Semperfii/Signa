@@ -6,7 +6,9 @@ from .classe import Classe
 
 class Student(User):
     classe = ForeignKeyField(Classe)
-    score = FloatField()
+    score = {"Maths": 0,
+             "Histoire": 0,
+             "Physique": 0}
     xp = FloatField()
 
     type = 0

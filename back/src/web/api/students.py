@@ -17,8 +17,8 @@ class Students(Resource):
         :return: list of students
         """
         search = request.args.get('search', None)
-        userManager = StudentsManager()
-        students = userManager.get_all(search=search, max=max)
+        studentsManager = StudentsManager()
+        students = studentsManager.get_all(search=search, max=max)
         logger.debug('Get on /students called. Search : {}.'.format(search))
         return students
 

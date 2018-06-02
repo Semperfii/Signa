@@ -55,9 +55,6 @@ class TeachersManager:
             except IntegrityError:
                 raise TeacherAlreadyRegistered
 
-    def del_teacher(self):
-        pass
-
     def del_teacher_table(self):
         with self.db.atomic():
             Teacher.drop_table()
@@ -70,8 +67,6 @@ class TeachersManager:
             else:
                 return None
 
-    def get_classes(self):
-        pass
 
 
 
