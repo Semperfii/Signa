@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import Login from "@/components/auth/Login";
 import StudentHome from "@/components/StudentHome";
-import StudentTopics from "@/components/StudentTopics";
 import ParentStatistic from '@/components/ParentStatistic'
 import StudentQuestion from "@/components/StudentQuestion";
 import TeacherHome from "@/components/TeacherHome";
@@ -23,11 +22,6 @@ export default new Router({
       component: StudentHome
     },
     {
-      path: "/student/topics",
-      name: "Student/topics",
-      component: StudentTopics
-    },
-    {
       path: "/student/question",
       name: "StudentQuestion",
       component: StudentQuestion
@@ -46,6 +40,7 @@ export default new Router({
       path: '/duel/animation',
       name: "DuelAnimation",
       component: DuelAnimation
+
     }
   ]
 });
