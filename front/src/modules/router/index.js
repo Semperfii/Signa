@@ -5,6 +5,7 @@ import Callback from "@/components/auth/Callback";
 import Main from "@/components/Main";
 import AddMatch from "@/components/AddMatch";
 import StudentHome from "@/components/StudentHome";
+import StudentTopics from "@/components/StudentTopics";
 
 Vue.use(Router);
 
@@ -34,6 +35,11 @@ export default new Router({
       path: "/student/home",
       name: "StudentHome",
       component: StudentHome
+    },
+    {
+      path: "/student/topics",
+      name: "Student/topics",
+      component: StudentTopics
     }
   ]
 });

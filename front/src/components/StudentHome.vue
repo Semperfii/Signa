@@ -13,43 +13,31 @@
       </v-toolbar-items>
     </v-toolbar>
     <div class="cardContainer">
-    <v-card class="cards">
-      <v-container
-        fluid
-        style="min-height: 0;"
-        grid-list-lg
-      >
-        <v-layout row wrap>
-          <v-flex xs12>
-            <v-card color="secondary" class="white--text">
-              <v-card-title primary-title>
-                <div class="headline">Ouverture du quizz hebdomadaire</div>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-          <v-flex xs12>
-            <v-card color="secondary" class="white--text">
-              <v-card-title primary-title>
-                <div class="headline">S'exercer en solo</div>
-              </v-card-title>
-              <v-card-actions>
-                <v-btn flat color="primary">Entraîne toi!</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-flex>
-          <v-flex xs12>
-            <v-card color="secondary" class="white--text">
-              <v-card-title primary-title>
+      <v-card class="cards">
+        <v-container
+          fluid
+          style="min-height: 0;"
+          grid-list-lg
+        >
+          <v-layout row wrap>
+            <v-flex xs12>
+              <v-btn color="secondary" class="white--text">
+                <div class="headline">Ouverture du quizz hebdomadaire:<br>*countdown*</div>
+              </v-btn>
+            </v-flex>
+            <v-flex xs12>
+              <v-btn color="secondary" class="white--text">
+                <div class="headline">Entraîne toi en solo</div>
+              </v-btn>
+            </v-flex>
+            <v-flex xs12>
+              <v-btn color="secondary" class="white--text">
                 <div class="headline">Défie tes amis</div>
-              </v-card-title>
-              <v-card-actions>
-                <v-btn flat color="primary">Duel</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-card>
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card>
     </div>
   </div>
 </template>
@@ -59,10 +47,16 @@
 
 <style>
 .cards {
-  margin-top: 20vh;
+  margin-top: 10vh;
 }
+
 .cardContainer {
   width: 50vw;
   margin: auto;
+}
+
+.white--text {
+  width: 48vw;
+  height: 20vh;
 }
 </style>
