@@ -3,7 +3,7 @@ from peewee import *
 from .school import School
 
 
-class Classe:
+class Classe(Model):
     id = PrimaryKeyField()
     grade = IntegerField()
     school = ForeignKeyField(School)
