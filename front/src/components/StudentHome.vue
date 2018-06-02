@@ -18,7 +18,7 @@
                   <v-progress-linear v-model="exp" height="10"></v-progress-linear>
                   <v-layout row wrap align-center class="pa-4">
                     <v-flex class="text-xs-center" md3>
-                      <div class="title">Meilleurs matières</div>
+                      <div class="title">Meilleures matières</div>
                     </v-flex>
                     <v-flex>
                       <v-layout column align-center>
