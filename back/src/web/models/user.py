@@ -8,6 +8,7 @@ class User(Model):
     first_name = CharField()
     last_name = CharField()
     email = CharField(unique=True, index=True)
+    password = CharField()
     _admin = IntegerField()
 
     @property

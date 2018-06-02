@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_refresh_token_required
 
+from ..managers import UsersManager
 from ..exceptions.users import *
 
 
@@ -37,17 +38,19 @@ def create_auth(app):
         if not request.is_json:
             return jsonify({"msg": "Missing JSON in request"}), 400
 
-        username = request.json.get('username', None)
+        email = request.json.get('email', None)
         password = request.json.get('password', None)
-        if not username:
-            return jsonify({"msg": "Missing username parameter"}), 400
+        if not email:
+            return jsonify({"msg": "Missing email parameter"}), 400
         if not password:
             return jsonify({"msg": "Missing password parameter"}), 400
 
-        if username != 'test' or password != 'test':
+        users_manager = UsersManager()
+        user = users_manager.check_user_auth(email, password)
+        if user is None:
             return jsonify({"msg": "Bad username or password"}), 401
 
-        access_token = create_access_token(identity=username)
+        access_token = create_access_token(identity=user)
         return jsonify(access_token=access_token), 200
 
     app.register_blueprint(auth_bp, url_prefix="/auth")

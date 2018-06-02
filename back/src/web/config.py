@@ -3,7 +3,7 @@ import logging
 import os
 from datetime import timedelta
 
-from ..util import DateTimeEncoder
+from util import DateTimeEncoder
 
 config = json.load(open(os.environ.get('CONFIG_FILE', './config/config.json')))
 

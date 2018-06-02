@@ -6,29 +6,12 @@ let user = {
   profile: JSON.parse(localStorage.getItem('profile'))
 };
 
-function login(context) {
-  axios.get(process.env.AUTH_URL + '/login')
+function login(context, email, password) {
+  axios.post(process.env.AUTH_URL + '/login', {
+    email: email,
+    password: password
+  })
     .then((response) => {
-      if (response.status === 200) {
-        window.location.replace(response.data.url);
-      } else {
-        context.error = true;
-      }
-    })
-    .catch(function (error) {
-      context.error = true;
-      context.errorMessage = '';
-      if (error.response) {
-        context.errorMessage = error.response.data.error;
-      } else {
-        console.log(error);
-      }
-    });
-}
-
-function authorize(context, code, state) {
-  axios.get(process.env.AUTH_URL + '/authorize?code=' + code + '&state=' + state)
-    .then(function (response) {
       if (response.status === 200) {
         localStorage.setItem('access_token', response.data.access_token);
         localStorage.setItem('refresh_token', response.data.refresh_token);
@@ -124,7 +107,6 @@ function checkAuth() {
 export default {
   user,
   login,
-  authorize,
   logout,
   checkAuth
 }

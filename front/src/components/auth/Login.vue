@@ -7,8 +7,8 @@
         <v-card flat id="card" color="transparent">
           <v-card-title primary-title>
             <div class="text">
-              <v-text-field name="email" label="Email"></v-text-field>
-              <v-text-field name="password" type="password" label="Mot de passe"></v-text-field>
+              <v-text-field name="email" label="Email" v-model="email"></v-text-field>
+              <v-text-field name="password" type="password" label="Mot de passe" v-model="password"></v-text-field>
               <v-btn block color="primary" v-on:click="login" id="connect">Se connecter</v-btn>
             </div>
           </v-card-title>
@@ -23,6 +23,12 @@
 
   export default {
     name: 'Login',
+    data() {
+      return {
+        email: "",
+        password: ""
+      }
+    },
     mounted() {
       let login = this;
 
@@ -33,7 +39,7 @@
     },
     methods: {
       login() {
-        auth.login(this);
+        auth.login(this, this.email, this.password);
       }
     }
   }

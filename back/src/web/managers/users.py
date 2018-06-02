@@ -43,7 +43,7 @@ class UsersManager:
             except DoesNotExist:
                 raise UserNotExisting
 
-    def create_user(self, email, first_name, last_name, admin=False):
+    def create_user(self, email, password, first_name, last_name, admin=False):
         if re.match(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', email) is None:
             raise BadEmail
         with self.db.atomic():
@@ -52,6 +52,7 @@ class UsersManager:
                     first_name=first_name,
                     last_name=last_name,
                     email=email,
+                    password=password,
                     admin=admin
                 )
                 return user
@@ -61,3 +62,11 @@ class UsersManager:
     def delete_users_table(self):
         with self.db.atomic():
             User.drop_table()
+
+    def check_user_auth(self, email, password):
+        with self.db.transaction():
+            users = User.select().where(User.email == email, User.password == password)
+            if len(users) > 0:
+                return users[0].get_data()
+            else:
+                return None
