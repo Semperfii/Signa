@@ -21,3 +21,4 @@ class QuestionsManager:
         questions = map(lambda x: model_to_dict(x), questions)
         r = questions.index(min([abs(question["difficulty"]-s) for question in questions]))
         return dict_to_model(Question, r)
+
