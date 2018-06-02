@@ -1,33 +1,39 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Login from '@/components/auth/Login'
-import Callback from '@/components/auth/Callback'
-import Main from '@/components/Main'
-import AddMatch from '@/components/AddMatch'
+import Vue from "vue";
+import Router from "vue-router";
+import Login from "@/components/auth/Login";
+import Callback from "@/components/auth/Callback";
+import Main from "@/components/Main";
+import AddMatch from "@/components/AddMatch";
+import StudentHome from "@/components/StudentHome";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Login',
+      path: "/",
+      name: "Login",
       component: Login
     },
     {
-      path: '/auth/callback',
-      name: 'Callback',
+      path: "/auth/callback",
+      name: "Callback",
       component: Callback
     },
     {
-      path: '/main',
-      name: 'Main',
+      path: "/main",
+      name: "Main",
       component: Main
     },
     {
-      path: '/main/add',
-      name: 'AddMatch',
+      path: "/main/add",
+      name: "AddMatch",
       component: AddMatch
+    },
+    {
+      path: "/student/home",
+      name: "StudentHome",
+      component: StudentHome
     }
   ]
-})
+});
