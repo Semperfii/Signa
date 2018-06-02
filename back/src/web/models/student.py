@@ -12,9 +12,9 @@ class Student(User):
     type = 0
 
     def get_data(self):
-        dict = super.get_data()
-        dict["class"] = self.classe
+        dict = super(Student, self).get_data()
+        dict["class"] = self.classe.get_data()
         return dict
 
 
-
+Student.create_table(fail_silently=True)

@@ -9,6 +9,9 @@ class Teacher(User):
     type = 1
 
     def get_data(self):
-        dict = super.get_data()
+        dict = super(Teacher, self).get_data()
         dict["subject"] = self.subject
         return dict
+
+
+Teacher.create_table(fail_silently=True)

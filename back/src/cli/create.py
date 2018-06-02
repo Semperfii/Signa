@@ -23,3 +23,21 @@ def student(mail, password, firstname, lastname, classe):
     except StudentAlreadyRegistered:
         click.echo('Student {} already registered'.format(mail))
 
+
+@create.command()
+@click.option('--name', prompt=True)
+def school(name):
+    from web.models import School
+    from web.database import db
+    with db.transaction():
+        School.create(name=name)
+
+
+@create.command()
+@click.option('--name', prompt=True)
+@click.option('--school', prompt=True)
+def classe(name, school):
+    from web.models import Classe
+    from web.database import db
+    with db.transaction():
+        Classe.create(name=name, school=school)

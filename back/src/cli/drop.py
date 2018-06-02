@@ -9,8 +9,8 @@ def drop():
 
 
 @drop.command()
-def users():
-    from web.managers import UsersManager
-    manager = UsersManager()
+def students():
+    from web.managers import StudentsManager
+    manager = StudentsManager()
     if click.confirm('Caution, dropping a table. Continue ?'):
-        manager.delete_users_table()
+        manager.del_student_table()

@@ -20,7 +20,7 @@ def create_auth(app):
     jwt = JWTManager(app)
     auth_bp = Blueprint('login', __name__)
 
-    @auth_bp.errorhandler(Exception)
+    @auth_bp.errorhandler(UsersError)
     def handle_invalid_usage(error):
         response = jsonify(error.to_dict())
         response.status_code = error.status_code

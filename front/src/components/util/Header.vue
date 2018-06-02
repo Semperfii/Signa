@@ -68,7 +68,7 @@
     },
     created() {
       let header = this;
-      
+
       auth.checkAuth().then(() => {
         header.name = auth.user.profile.first_name + " " + auth.user.profile.last_name;
       }).catch((err) => {

@@ -6,3 +6,5 @@ class Question:
     subject = CharField()
     difficulty = IntegerField()
     content = CharField()
+
+
