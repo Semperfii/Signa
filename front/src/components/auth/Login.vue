@@ -49,8 +49,6 @@
   .login {
     width: 100%;
     text-align: center;
-    background-image: url('../../assets/background.png');
-    min-height: 100vh;
   }
 
   #title {

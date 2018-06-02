@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <v-toolbar dense flat color="white">
-      <v-toolbar-title><a href="#/main"><img src="../../assets/title.png"/></a></v-toolbar-title>
+    <v-toolbar dense flat color="transparent">
+      <v-toolbar-title><a href="#/student/home"><img src="../../assets/title.png"/></a></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-menu v-model="menu" offset-y>
@@ -16,7 +16,7 @@
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title>{{ name }}</v-list-tile-title>
-                  <v-list-tile-sub-title>6ème A - Collège Juliette Adam</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>6ème B - Collège Juliette Adam</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
@@ -66,7 +66,7 @@
         auth.logout();
       }
     },
-    /*created() {
+    created() {
       let header = this;
 
       auth.checkAuth().then(() => {
@@ -74,7 +74,7 @@
       }).catch((err) => {
         console.log(err);
       });
-    }*/
+    }
   };
 </script>
 
