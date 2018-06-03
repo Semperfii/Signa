@@ -91,7 +91,7 @@
           outcome: outcome
         }).then((result) => {
           setTimeout(this.loadQuestion, 2000);
-          this.snackbardev.text = " Score : " + (result.data.score);
+          this.snackbardev.text = " Score : " + Math.round(result.data.score * 100)/100;
         });
       },
       decrement: function () {
