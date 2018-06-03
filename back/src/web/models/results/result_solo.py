@@ -1,8 +1,9 @@
 from peewee import *
-from ..database import db
+
+from web.database import db
 
 
-class ResultQuizz:
+class ResultSolo:
     id_student = IntegerField()
     id_question = IntegerField()
     outcome = BooleanField()

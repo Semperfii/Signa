@@ -1,4 +1,4 @@
-from web.models import User
+from .user import User
 
 
 class Parent(User):

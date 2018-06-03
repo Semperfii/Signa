@@ -1,9 +1,10 @@
-from ..database import db
-from ..models import Parent
-from ..exceptions import *
-from playhouse.shortcuts import model_to_dict
-from peewee import DoesNotExist, IntegrityError
 import re
+from peewee import DoesNotExist, IntegrityError
+from playhouse.shortcuts import model_to_dict
+
+from ..database import db
+from ..exceptions import *
+from ..models import Parent
 
 
 class ParentsManager:

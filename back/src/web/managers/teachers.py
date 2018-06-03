@@ -1,11 +1,10 @@
+import re
 from peewee import DoesNotExist, IntegrityError
 from playhouse.shortcuts import model_to_dict
-import re
-
-from ..models import Teacher
-from ..exceptions import *
 
 from ..database import db
+from ..exceptions import *
+from ..models import Teacher
 
 
 class TeachersManager:

@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_refresh_token_required
 
-from ..managers import TeachersManager, StudentsManager
 from ..exceptions import *
+from ..managers import TeachersManager, StudentsManager
 
 
 def teacher_only(func):

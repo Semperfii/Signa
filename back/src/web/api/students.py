@@ -1,8 +1,8 @@
 from flask_jwt_extended import jwt_required
 from flask_restful import Resource, request
 
-from ..managers import StudentsManager
 from ..config import logger
+from ..managers import StudentsManager
 
 
 class Students(Resource):

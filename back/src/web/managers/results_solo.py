@@ -1,6 +1,7 @@
+from peewee import IntegrityError
+
 from ..database import db
 from ..models import ResultSolo
-from peewee import IntegrityError
 
 
 class SoloResultsManager:

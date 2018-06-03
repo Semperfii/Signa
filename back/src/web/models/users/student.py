@@ -1,14 +1,13 @@
+import json
 from peewee import *
 
-from ..models import User
-from .classe import Classe
+from web.models.infra.classe import Classe
+from .user import User
 
 
 class Student(User):
     classe = ForeignKeyField(Classe)
-    score = {"Maths": 0,
-             "Histoire": 0,
-             "Physique": 0}
+    score = CharField()
     xp = FloatField()
 
     type = 0
@@ -16,6 +15,7 @@ class Student(User):
     def get_data(self):
         dict = super(Student, self).get_data()
         dict["class"] = self.classe.get_data()
+        dict["score"] = json.loads(self.score)
         return dict
 
 

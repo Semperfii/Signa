@@ -1,6 +1,6 @@
 from peewee import *
 
-from ..models.user import User
+from .user import User
 
 
 class Teacher(User):

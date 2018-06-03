@@ -1,6 +1,7 @@
+from peewee import IntegrityError
+
 from ..database import db
 from ..models import ResultQuizz
-from peewee import IntegrityError
 
 
 class QuizzResultsManager:

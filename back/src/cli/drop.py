@@ -14,3 +14,12 @@ def students():
     manager = StudentsManager()
     if click.confirm('Caution, dropping a table. Continue ?'):
         manager.del_student_table()
+
+
+@drop.command()
+def questions():
+    from web.models import Question
+    from web.database import db
+    if click.confirm('Caution, dropping a table. Continue ?'):
+        with db.atomic():
+            Question.drop_table()

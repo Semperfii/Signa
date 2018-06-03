@@ -1,7 +1,7 @@
 from peewee import *
 
 from .school import School
-from ..database import db
+from web.database import db
 
 
 class Classe(Model):

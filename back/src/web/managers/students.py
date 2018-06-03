@@ -1,15 +1,14 @@
-from web.models.classe import Classe
-from ..database import db
-from ..models import Student
-from ..exceptions import *
+import json
 import re
 from peewee import DoesNotExist, IntegrityError
-
 from playhouse.shortcuts import model_to_dict
+
+from ..database import db
+from ..exceptions import *
+from ..models import Student
 
 
 class StudentsManager:
-
     def __init__(self):
         self.db = db
         self.db.connect(reuse_if_open=True)
@@ -53,7 +52,7 @@ class StudentsManager:
                     email=email,
                     password=password,
                     classe=classe,
-                    score=0.,
+                    score=json.dumps({0: 0.5}),
                     xp=0.
                     )
                 return student

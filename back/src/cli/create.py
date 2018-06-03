@@ -1,4 +1,5 @@
 import click
+import json
 
 from cli import cli
 
@@ -41,3 +42,15 @@ def classe(name, school):
     from web.database import db
     with db.transaction():
         Classe.create(name=name, school=school)
+
+
+@create.command()
+@click.option('--data_json', prompt=True)
+@click.option('--subject', prompt=True)
+def question(data_json, subject):
+    from web.models import Question
+    from web.database import db
+    data = json.loads(data_json)
+    with db.transaction():
+        Question.create(subject=subject, content=data["question"],
+                        difficulty=data["difficulty"],  propositions=json.dumps(data["propositions"]))
