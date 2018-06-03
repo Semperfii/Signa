@@ -138,12 +138,17 @@
 </template>
 
 <script>
+  import auth from '../modules/auth';
+
   export default {
     data() {
       return {
         dialog: false,
-        exp: 70
+        exp: auth.user.profile.xp / 1000 * 100
       };
+    },
+    created() {
+      console.log(this.exp);
     }
   };
 </script>

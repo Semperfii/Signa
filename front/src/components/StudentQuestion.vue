@@ -10,7 +10,8 @@
             </v-card-title>
             <v-container class="propositionsContainer" grid-list-md>
               <v-layout row wrap>
-                <v-flex xs6 v-for="answer in question.propositions" :key="question.propositions.indexOf(answer)" align-center>
+                <v-flex xs6 v-for="answer in question.propositions" :key="question.propositions.indexOf(answer)"
+                        align-center>
                   <v-btn round class="answer" :color="question.colors[question.propositions.indexOf(answer)]"
                          @click="changeQuestion(answer)">
                     <div class="answer-text">{{ answer }}</div>
@@ -23,6 +24,21 @@
       </v-layout>
     </v-container>
     <v-progress-linear class="progress bottom-progress" v-model="valueDeterminate"></v-progress-linear>
+
+    <v-snackbar
+      :timeout="3000"
+      bottom
+      v-model="snackbar.active">
+      {{ snackbar.text }}
+      <v-btn flat color="pink" @click.native="snackbar.active = false">Close</v-btn>
+    </v-snackbar>
+    <v-snackbar
+      :timeout="3000"
+      top
+      v-model="snackbardev.active">
+      {{ snackbardev.text }}
+      <v-btn flat color="pink" @click.native="snackbardev.active = false">Close</v-btn>
+    </v-snackbar>
   </div>
 </template>
 
@@ -37,7 +53,15 @@
         valueDeterminate: 0,
         laps: 100,
         timer: null,
-        mode: null
+        mode: null,
+        snackbar: {
+          active: false,
+          text: ""
+        },
+        snackbardev: {
+          active: false,
+          text: ""
+        }
       };
     },
     created() {
@@ -51,17 +75,23 @@
         if (this.question.propositions.indexOf(answer) === this.question.correct_answer) {
           this.$set(this.question.colors, this.question.correct_answer, "green");
           outcome = true;
+          this.snackbar.text = "Bonne réponse !";
         } else {
           this.$set(this.question.colors, this.question.propositions.indexOf(answer), "red");
           this.$set(this.question.colors, this.question.correct_answer, "green");
+          this.snackbar.text = "Mauvaise réponse !";
         }
+        this.snackbar.active = true;
         this.valueDeterminate += 10;
         this.question_id += 1;
         clearInterval(this.timer);
 
-        axios.post(process.env.API_URL + "/results", {question_id: this.question.id, outcome: outcome}).then((result) => {
-          setTimeout(this.loadQuestion, 3000);
-          console.log(result.data);
+        axios.post(process.env.API_URL + "/results", {
+          question_id: this.question.id,
+          outcome: outcome
+        }).then((result) => {
+          setTimeout(this.loadQuestion, 2000);
+          this.snackbardev.text = " Score : " + (result.data.score);
         });
       },
       decrement: function () {
@@ -76,12 +106,17 @@
         this.question = null;
         this.laps = 100;
         this.timer = null;
-        axios.get(process.env.API_URL + "/questions/" + this.question_id).then((result) => {
-          this.question = result.data;
-          console.log(this.question.difficulty);
-          this.question.colors = ["secondary", "secondary", "secondary", "secondary"];
-          this.timer = setInterval(this.decrement, 50);
-        });
+        if (this.question_id !== 10) {
+          axios.get(process.env.API_URL + "/questions/" + this.question_id).then((result) => {
+            this.question = result.data;
+            this.snackbardev.text += " Difficultée : " + result.data.difficulty;
+            this.snackbardev.active = true;
+            this.question.colors = ["secondary", "secondary", "secondary", "secondary"];
+            this.timer = setInterval(this.decrement, 50);
+          });
+        } else {
+          this.$router.replace('/student/summary');
+        }
       }
     }
   };
@@ -107,6 +142,12 @@
     width: 400px;
     margin: 2em auto;
     display: block;
+  }
+
+  .bottom-progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 
 </style>

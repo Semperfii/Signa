@@ -1,41 +1,12 @@
 <template>
   <div class="main">
-    <v-toolbar class="toolbar">
-      <v-toolbar-title>NOM Prénom</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-      <v-spacer></v-spacer>
-        <v-layout wrap justify-space-around align-center>
-          <v-btn icon @click="dialog = true">
-            <v-avatar color="indigo">
-              <v-icon dark style="margin-left: 0">account_circle</v-icon>
-            </v-avatar>
-          </v-btn>
-          <v-dialog v-model="dialog">
-            <v-card class="dialog">
-              <v-card-actions>
-                <v-btn color="secondary">
-                  <span>Modifier le profil</span>
-                  <v-icon>create</v-icon>
-                </v-btn>
-                <v-btn color="primary">
-                  <span>Se déconnecter</span>
-                  <v-icon>exit_to_app</v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-        </v-layout>
-      </v-toolbar-items>
-    </v-toolbar>
-
     <v-container fluid grid-list-xl text-xs-center>
         <v-expansion-panel >
             <v-layout>
                 <v-flex xs12>
                     <v-expansion-panel-content v-for="semaine in semaines" :key="semaine.name">
                     <div slot="header">{{semaine.title}} </div>
-                        <v-btn color="info" v-on:click="reset(semaine)">Reset : Semaine précédente</v-btn>    
+                        <v-btn color="info" v-on:click="reset(semaine)">Reset : Semaine précédente</v-btn>
                         <v-data-table
                             v-model="semaine.checked"
                             :headers="headers"

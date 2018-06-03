@@ -49,7 +49,7 @@ export default new Router({
       component: StudentOpponent
     },
     {
-      path: "/student/question/summary",
+      path: "/student/summary",
       name: "StudentSummary",
       component: StudentSummary
     }

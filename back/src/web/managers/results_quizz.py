@@ -1,3 +1,5 @@
+from playhouse.shortcuts import model_to_dict
+
 from ..database import db
 from ..models import ResultQuizz
 
@@ -19,6 +21,12 @@ class QuizzResultsManager:
                 outcome=outcome
             )
             return result
+
+    def get_results(self, id_student):
+        with self.db.transaction():
+            results = ResultQuizz.select().where(ResultQuizz.id_student == id_student)
+            results_dict = [model_to_dict(result, recurse=True) for result in results]
+        return results_dict
 
     def del_result_table(self):
         with self.db.atomic():

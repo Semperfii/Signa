@@ -59,6 +59,13 @@ class StudentsManager:
             except IntegrityError:
                 raise StudentAlreadyRegistered
 
+    def reset_student(self, student_id):
+        with self.db.atomic():
+            query = Student.update(score=json.dumps({0: 0.2})).where(Student.id == student_id)
+            query.execute()
+            query = Student.update(xp=100).where(Student.id == student_id)
+            query.execute()
+
     def del_student(self):
         pass
 

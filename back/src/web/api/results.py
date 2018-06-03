@@ -9,6 +9,13 @@ from web.managers.results_quizz import QuizzResultsManager
 class Results(Resource):
 
     @jwt_required
+    def get(self):
+        me = get_jwt_identity()["id"]
+        results_manager = QuizzResultsManager()
+        results = results_manager.get_results(me)
+        return results
+
+    @jwt_required
     def post(self):
         studentsManager = StudentsManager()
         me = get_jwt_identity()["id"]
