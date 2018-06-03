@@ -52,7 +52,7 @@ class StudentsManager:
                     email=email,
                     password=password,
                     classe=classe,
-                    score=json.dumps({0: 0.5}),
+                    score=json.dumps({0: 0.2}),
                     xp=0.
                     )
                 return student

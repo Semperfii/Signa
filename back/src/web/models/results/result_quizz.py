@@ -1,11 +1,13 @@
 from peewee import *
 
 from web.database import db
+from ..questions import Question
 
 
 class ResultQuizz(Model):
+    id = PrimaryKeyField()
     id_student = IntegerField()
-    id_question = IntegerField()
+    question = ForeignKeyField(Question)
     outcome = BooleanField()
 
     class Meta:

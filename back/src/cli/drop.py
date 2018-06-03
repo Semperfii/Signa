@@ -23,3 +23,10 @@ def questions():
     if click.confirm('Caution, dropping a table. Continue ?'):
         with db.atomic():
             Question.drop_table()
+
+
+@drop.command()
+def results():
+    from web.managers import QuizzResultsManager
+    if click.confirm('Caution, dropping a table. Continue ?'):
+        QuizzResultsManager().del_result_table()

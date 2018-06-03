@@ -6,7 +6,7 @@ from web.database import db
 class Question(Model):
     id = PrimaryKeyField()
     subject = CharField()
-    difficulty = IntegerField()
+    difficulty = FloatField()
     content = CharField()
     proposition_1 = CharField()
     proposition_2 = CharField()
