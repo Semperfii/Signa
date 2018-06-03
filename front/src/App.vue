@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="uk-background-default">
     <v-app>
-      <bp-header v-if="$route.name !== 'Login'"></bp-header>
+      <bp-header v-if="forbiddenPath()"></bp-header>
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -16,6 +16,14 @@
     name: 'App',
     components: {
       bpHeader: BpHeader
+    },
+    methods: {
+      forbiddenPath: function() {
+        if ((this.$route.name === 'Login') || (this.$route.name === 'StudentQuestion')) {
+          return false;
+        }
+        return true;
+      }
     }
   }
 </script>
