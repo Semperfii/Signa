@@ -1,10 +1,21 @@
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from flask_restful import Resource
+from flask_restful import Resource, request
 
 from web.managers import StudentsManager
 from web.managers.questions import QuestionsManager
 from ..store import Store
 
+
+class Question(Resource):
+    @jwt_required
+    def get(self):
+        me = get_jwt_identity()["id"]
+        student = StudentsManager().get(me)
+        subject = request.args.get('subject', None)
+        questionsManager = QuestionsManager()
+        question = questionsManager.allocate_question(student, subject)
+        return question
+    
 
 class Questions(Resource):
 
