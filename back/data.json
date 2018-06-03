@@ -14,7 +14,7 @@
 		"question" : "Qui n'a jamais gouverné la france ?",
 		"propositions" : [
 			"Napoléon",
-			"Nicholas Sarkozy",
+			"Nicolas Sarkozy",
 			"Donald Trump",
 			"Louis XIV"
 		],
@@ -22,7 +22,7 @@
 		"answer" : 2
 	},
 	{
-		"question" : "En quelle année César a-t-il vaincu Vercingetorix à Alésia ?",
+		"question" : "En quelle année César a-t-il vaincu Vercingétorix à Alésia ?",
 		"propositions" : [
 			"- 52",
 			"- 42",
@@ -55,7 +55,7 @@
 		"answer" : 2
 	},
 	{
-		"question" : "En quelle année les Etats Unis ont-il déclaré leur indépendance ?",
+		"question" : "En quelle année les Etats-Unis ont-il déclaré leur indépendance ?",
 		"propositions" : [
 			"1724",
 			"1760",
@@ -77,7 +77,7 @@
 		"answer" : 3
 	},
 	{
-		"question" : "Où s'est déroulé la bataille de Marignan ?",
+		"question" : "Où s'est déroulée la bataille de Marignan ?",
 		"propositions" : [
 			"A Marignane, vers Marseille",
 			"Au Magne, dans le Péloponèse",
@@ -123,10 +123,10 @@
 	{
 		"question" : "Combien d’habitants le « Grand Empire » de Napoléon comptait-il ?",
 		"propositions" : [
-			"50 milions",
-			"70 milions",
-			"100 milions",
-			"120 milions"
+			"50 millions",
+			"70 millions",
+			"100 millions",
+			"120 millions"
 		],
 		"difficulty" : 0.75,
 		"answer" : 1
@@ -143,7 +143,7 @@
 		"answer" : 3
 	},
 	{
-		"question" : "Quelle a été l'année de fin de la quatrième république",
+		"question" : "Quelle a été l'année de fin de la quatrième république ?",
 		"propositions" : [
 			"1949",
 			"1953",
