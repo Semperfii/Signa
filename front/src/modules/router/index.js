@@ -24,7 +24,7 @@ export default new Router({
       component: StudentHome
     },
     {
-      path: "/student/question",
+      path: "/student/question/:type",
       name: "StudentQuestion",
       component: StudentQuestion
     },

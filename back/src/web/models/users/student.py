@@ -16,6 +16,7 @@ class Student(User):
         dict = super(Student, self).get_data()
         dict["class"] = self.classe.get_data()
         dict["score"] = json.loads(self.score)
+        dict['xp'] = self.xp
         return dict
 
 

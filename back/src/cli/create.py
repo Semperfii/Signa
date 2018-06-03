@@ -64,4 +64,4 @@ def question(data_json, subject):
                                 proposition_1=proposition_1,
                                 proposition_2=proposition_2,
                                 proposition_3=proposition_3,
-                                proposition_4=proposition_4)
+                                proposition_4=proposition_4, correct_answer=question["answer"])

@@ -12,6 +12,7 @@ class Question(Model):
     proposition_2 = CharField()
     proposition_3 = CharField()
     proposition_4 = CharField()
+    correct_answer = IntegerField()
 
     class Meta:
         database = db

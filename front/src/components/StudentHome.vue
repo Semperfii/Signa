@@ -88,7 +88,7 @@
                       professeur !</p>
                     <div class="play-buttons">
                       <v-btn flat color="white">Résultats</v-btn>
-                      <v-btn color="primary" @click="desintegrate">Je suis prêt !</v-btn>
+                      <v-btn color="primary" to="/student/question/quizz">Je suis prêt !</v-btn>
                     </div>
                   </v-flex>
                 </v-layout>
@@ -106,7 +106,7 @@
                     <p class="white--text subtext">Choisis une matière et montre à tes amis que tu es meilleur qu'eux
                       !</p>
                     <div class="play-buttons">
-                      <v-btn color="primary">A l'attaque !</v-btn>
+                      <v-btn color="primary" to="/student/opponent">A l'attaque !</v-btn>
                     </div>
                   </v-flex>
                 </v-layout>
@@ -124,7 +124,7 @@
                     <p class="white--text subtext">Choisis ta matière et entraine toi sur une série de 10 questions à
                       ton niveau !</p>
                     <div class="play-buttons">
-                      <v-btn color="primary">C'est parti !</v-btn>
+                      <v-btn color="primary" to="/student/topics">C'est parti !</v-btn>
                     </div>
                   </v-flex>
                 </v-layout>
@@ -144,12 +144,6 @@
         dialog: false,
         exp: 70
       };
-    },
-    methods: {
-      desintegrate() {
-        let particles = new Particles('#dungeon');
-        particles.disintegrate();
-      }
     }
   };
 </script>

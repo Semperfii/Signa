@@ -54,7 +54,7 @@
                 v-bind="{ [`xs${topic.flex}`]: true }"
                 :key="topic.id"
               >
-                <v-btn class="topic" color="primary" @click.native="e1 =3">
+                <v-btn class="topic" color="primary" @click.native="play">
                     <div class="headline">{{ topic.title }}</div>
                     <v-spacer></v-spacer>
                     <v-icon>forward</v-icon>
@@ -100,6 +100,12 @@
           { star: false, recent: true, title: 'Adrien Foucault' },
           { star: false, recent: true, title: 'François Martin' }
         ]
+      }
+    },
+    methods: {
+      play() {
+        this.e1 = 3;
+        this.$router.replace('/duel/animation');
       }
     }
   }

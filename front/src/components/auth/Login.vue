@@ -33,7 +33,7 @@
       let login = this;
 
       auth.checkAuth().then(() => {
-        login.$router.replace('/main');
+        login.$router.replace('/' + auth.user.home + '/home');
       }).catch(() => {
       });
     },
