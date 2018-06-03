@@ -24,7 +24,7 @@ class SoloResultsManager:
                 )
                 return result
             except IntegrityError:
-                raise ResultAlreadyRegistered
+                pass
 
     def del_result_table(self):
         with self.db.atomic():

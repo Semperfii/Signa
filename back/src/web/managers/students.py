@@ -3,9 +3,11 @@ import re
 from peewee import DoesNotExist, IntegrityError
 from playhouse.shortcuts import model_to_dict
 
+from web.managers.questions import QuestionsManager
 from ..database import db
 from ..exceptions import *
 from ..models import Student
+from ..managers import QuizzResultsManager
 
 
 class StudentsManager:
@@ -73,4 +75,30 @@ class StudentsManager:
                 return students[0].get_data()
             else:
                 return None
+
+    def update_score(self, student_id, result):
+        bonus = QuestionsManager().eval_question(result)
+        student = StudentsManager().get(student_id)
+        scores = json.loads(student.score)
+        subject = result.question.subject
+        new_score = scores[subject] + bonus
+        if new_score < 0:
+            scores[subject] = 0
+            query = Student.update(scores=json.dumps(scores)).where(Student.id == student_id)
+            query.execute()
+        elif new_score > 1:
+            scores[subject] = 1
+            query = Student.update(scores=json.dumps(scores)).where(Student.id == student_id)
+            query.execute()
+        else:
+            scores[subject] = new_score
+            query = Student.update(scores=json.dumps(scores)).where(Student.id == student_id)
+            query.execute()
+
+    def update_xp(self, student_id, result):
+        xp = QuestionsManager().xp_question(result)
+        query = Student.update(xp = xp).where(Student.id == student_id)
+        query.execute()
+
+
 

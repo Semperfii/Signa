@@ -2,6 +2,8 @@ from web.database import db
 from ..managers import StudentsManager
 from ..models import Question
 from ..models import ResultQuizz
+from util.xp_functions import default_quizz_fct
+from util.eval_functions import default_fct
 
 
 class QuestionsManager:
@@ -36,14 +38,14 @@ class QuestionsManager:
                 del best_question['proposition_{}'.format(i)]
             return best_question
 
-    def eval_question(self, result_solo, eval_function):
+    def eval_question(self, result_solo, eval_function=default_fct):
         with self.db.transaction():
             student = StudentsManager().get(result_solo.id_student)
             question = result_solo.question
             score = student.score[question.subject]
             return result_solo.outcome * (eval_function(score, question.difficulty))
 
-    def xp_question(self, result_solo, xp_function):
+    def xp_question(self, result_solo, xp_function=default_quizz_fct):
         with self.db.transaction():
             if result_solo.outcome:
                 student = StudentsManager().get(result_solo.id_student)

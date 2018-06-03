@@ -15,7 +15,7 @@ class Question(Resource):
         questionsManager = QuestionsManager()
         question = questionsManager.allocate_question(student, subject)
         return question
-    
+
 
 class Questions(Resource):
 
