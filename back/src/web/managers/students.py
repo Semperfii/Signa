@@ -94,6 +94,8 @@ class StudentsManager:
         return scores[subject]
 
     def update_xp(self, student_id, xp):
+        student = StudentsManager().get(student_id)
+        xp += student['xp']
         with self.db.transaction():
             query = Student.update(xp=xp).where(Student.id == student_id)
             query.execute()

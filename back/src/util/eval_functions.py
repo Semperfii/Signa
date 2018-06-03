@@ -1,2 +1,2 @@
-def default_fct(score, difficulty):
-    return (score + difficulty) / 2
+def default_fct(difficulty):
+    return 0.15

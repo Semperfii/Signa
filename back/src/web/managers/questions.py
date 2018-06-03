@@ -39,16 +39,12 @@ class QuestionsManager:
             return best_question
 
     def eval_question(self, result_solo, eval_function=default_fct):
-        student = StudentsManager().get(result_solo.id_student)
         question = result_solo.question
-        score = student['score'][question.subject]
         if result_solo.outcome:
-            return eval_function(score, question.difficulty)
+            return eval_function(question.difficulty)
         else:
-            return -1 * (eval_function(score, question.difficulty))
+            return -1 * (eval_function(question.difficulty))
 
     def xp_question(self, result_solo, xp_function=default_quizz_fct):
-        student = StudentsManager().get(result_solo.id_student)
         question = result_solo.question
-        xp = student['xp']
-        return xp_function(question.difficulty, xp) * int(result_solo.outcome)
+        return xp_function(question.difficulty) * int(result_solo.outcome)

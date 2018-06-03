@@ -98,6 +98,8 @@
 
   .answer-text {
     font-weight: 200;
+    font-size: 2rem;
+    color: white;
   }
 
   .answer {
