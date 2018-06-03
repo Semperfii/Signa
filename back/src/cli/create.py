@@ -50,7 +50,18 @@ def classe(name, school):
 def question(data_json, subject):
     from web.models import Question
     from web.database import db
-    data = json.loads(data_json)
+    with open(data_json) as file:
+        data = json.load(file)
     with db.transaction():
-        Question.create(subject=subject, content=data["question"],
-                        difficulty=data["difficulty"],  propositions=json.dumps(data["propositions"]))
+        if isinstance(data, list):
+            for question in data:
+                proposition_1 = question["propositions"][0]
+                proposition_2 = question["propositions"][1]
+                proposition_3 = question["propositions"][2]
+                proposition_4 = question["propositions"][3]
+                Question.create(subject=subject, content=question["question"],
+                                difficulty=question["difficulty"],
+                                proposition_1=proposition_1,
+                                proposition_2=proposition_2,
+                                proposition_3=proposition_3,
+                                proposition_4=proposition_4)

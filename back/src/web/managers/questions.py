@@ -1,5 +1,3 @@
-from playhouse.shortcuts import model_to_dict, dict_to_model
-
 from web.database import db
 from ..managers import StudentsManager
 from ..models import Question
@@ -24,10 +22,15 @@ class QuestionsManager:
     def allocate_question(self, student, subject):
         with self.db.transaction():
             s = student['score'][str(subject)]
-            questions = Question.select().where(Question.subject == subject)
-            questions = list(map(lambda x: model_to_dict(x), questions))
-            r = questions.index(min([abs(question["difficulty"] - s) for question in questions]))
-            return dict_to_model(Question, r)
+            questions = Question.select().where(Question.subject == subject).dicts()
+            print(questions)
+            _, best_question_index = min([abs(question["difficulty"] - s) for question in questions])
+            best_question = questions[best_question_index]
+
+            best_question['propositions'] = [best_question['proposition_{}'.format(i)] for i in range(4)]
+            for i in range(4):
+                del best_question['proposition_{}'.format(i)]
+            return best_question
 
     def eval_question(self, result_solo, eval_function):
         with self.db.transaction():

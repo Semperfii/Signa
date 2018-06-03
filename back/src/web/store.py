@@ -17,3 +17,6 @@ class Store:
             return json.loads(subjects)
         else:
             return None
+
+    def remove_subjects(self, user_id):
+        self.redis_db.delete('subjects_{}'.format(user_id))

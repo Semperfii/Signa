@@ -40,4 +40,7 @@ class Questions(Resource):
         questionsManager = QuestionsManager()
         question = questionsManager.allocate_question(student, subject)
 
+        if question_id == 19:
+            store.remove_subjects(me)
+
         return question

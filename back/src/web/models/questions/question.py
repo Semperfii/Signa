@@ -8,10 +8,10 @@ class Question(Model):
     subject = CharField()
     difficulty = IntegerField()
     content = CharField()
-    propositions_1 = CharField()
-    propositions_2 = CharField()
-    propositions_3 = CharField()
-    propositions_4 = CharField()
+    proposition_1 = CharField()
+    proposition_2 = CharField()
+    proposition_3 = CharField()
+    proposition_4 = CharField()
 
     class Meta:
         database = db

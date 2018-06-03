@@ -1,0 +1,156 @@
+[
+	{
+		"question" : "Quelles sont les dates de la seconde guerre mondiale ?",
+		"propositions" : [
+			"1939-1945",
+			"1914-1918",
+			"1922-1925",
+			"2002-2006"
+		],
+		"difficulty" : 0.1,
+		"answer" : 0
+	},
+	{
+		"question" : "Qui n'a jamais gouverné la france ?",
+		"propositions" : [
+			"Napoléon",
+			"Nicholas Sarkozy",
+			"Donald Trump",
+			"Louis XIV"
+		],
+		"difficulty" : 0,
+		"answer" : 2
+	},
+	{
+		"question" : "En quelle année César a-t-il vaincu Vercingetorix à Alésia ?",
+		"propositions" : [
+			"- 52",
+			"- 42",
+			"- 32",
+			"- 45"
+		],
+		"difficulty" : 0.3,
+		"answer" : 1
+	},
+	{
+		"question" : "En quelle année est mort le pape Jean Paul II ?",
+		"propositions" : [
+			"2002",
+			"2004",
+			"2005",
+			"2011"
+		],
+		"difficulty" : 0.5,
+		"answer" : 2
+	},
+	{
+		"question" : "Qui a été libéré en 1950 après 27 ans de prison en Afrique du Sud ?",
+		"propositions" : [
+			"Rosa Parks",
+			"Martin Luther King",
+			"Nelson Mandela",
+			"Morgan Freeman"
+		],
+		"difficulty" : 0.25,
+		"answer" : 2
+	},
+	{
+		"question" : "En quelle année les Etats Unis ont-il déclaré leur indépendance ?",
+		"propositions" : [
+			"1724",
+			"1760",
+			"1776",
+			"1799"
+		],
+		"difficulty" : 0.45,
+		"answer" : 2
+	},
+	{
+		"question" : "Quel est le prénom de Lénine ?",
+		"propositions" : [
+			"Joseph",
+			"Yuri",
+			"Igor",
+			"Vladimir"
+		],
+		"difficulty" : 0.6,
+		"answer" : 3
+	},
+	{
+		"question" : "Où s'est déroulé la bataille de Marignan ?",
+		"propositions" : [
+			"A Marignane, vers Marseille",
+			"Au Magne, dans le Péloponèse",
+			"A Melegnano, vers Milan",
+			"Dans la ville de Marignan"
+		],
+		"difficulty" : 0.9,
+		"answer" : 2
+	},
+	{
+		"question" : "Quel était le plat favori d'Henri IV ?",
+		"propositions" : [
+			"Le poulet roti",
+			"La poule au pot",
+			"Le coq au vin",
+			"Le poulet à l'ail"
+		],
+		"difficulty" : 0.58,
+		"answer" : 1
+	},
+	{
+		"question" : "De combien de coups de couteau est mort César ?",
+		"propositions" : [
+			"23",
+			"31",
+			"45",
+			"52"
+		],
+		"difficulty" : 0.9,
+		"answer" : 0
+	},
+	{
+		"question" : "Qui était le président de la République avant Raymond Pointcaré",
+		"propositions" : [
+			"Felix Faure",
+			"Paul Deschanel",
+			"Armand Fallière",
+			"Paul Dubois"
+		],
+		"difficulty" : 0.95,
+		"answer" : 2
+	},
+	{
+		"question" : "Combien d’habitants le « Grand Empire » de Napoléon comptait-il ?",
+		"propositions" : [
+			"50 milions",
+			"70 milions",
+			"100 milions",
+			"120 milions"
+		],
+		"difficulty" : 0.75,
+		"answer" : 1
+	},
+	{
+		"question" : "Qui a signé les accords de Locarno ?",
+		"propositions" : [
+			"Pierre Laval",
+			"Pierre Regiano",
+			"Edouard Daladier",
+			"Aristide Briand"
+		],
+		"difficulty" : 0.85,
+		"answer" : 3
+	},
+	{
+		"question" : "Quelle a été l'année de fin de la quatrième république",
+		"propositions" : [
+			"1949",
+			"1953",
+			"1956",
+			"1958"
+		],
+		"difficulty" : 0.81,
+		"answer" : 3
+	}
+]
