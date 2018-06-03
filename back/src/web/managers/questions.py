@@ -42,7 +42,10 @@ class QuestionsManager:
         student = StudentsManager().get(result_solo.id_student)
         question = result_solo.question
         score = student['score'][question.subject]
-        return result_solo.outcome * (eval_function(score, question.difficulty))
+        if result_solo.outcome:
+            return eval_function(score, question.difficulty)
+        else:
+            return -1 * (eval_function(score, question.difficulty))
 
     def xp_question(self, result_solo, xp_function=default_quizz_fct):
         student = StudentsManager().get(result_solo.id_student)

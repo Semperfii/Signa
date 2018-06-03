@@ -91,7 +91,7 @@ class StudentsManager:
                 scores[subject] = new_score
                 query = Student.update(score=json.dumps(scores)).where(Student.id == student_id)
                 query.execute()
-        return new_score
+        return scores[subject]
 
     def update_xp(self, student_id, xp):
         with self.db.transaction():

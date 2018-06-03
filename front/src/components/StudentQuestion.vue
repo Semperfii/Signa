@@ -13,7 +13,7 @@
                 <v-flex xs6 v-for="answer in question.propositions" :key="question.propositions.indexOf(answer)" align-center>
                   <v-btn round class="answer" :color="question.colors[question.propositions.indexOf(answer)]"
                          @click="changeQuestion(answer)">
-                    <div class="headline">{{ answer }}</div>
+                    <div class="answer-text">{{ answer }}</div>
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -78,6 +78,7 @@
         this.timer = null;
         axios.get(process.env.API_URL + "/questions/" + this.question_id).then((result) => {
           this.question = result.data;
+          console.log(this.question.difficulty);
           this.question.colors = ["secondary", "secondary", "secondary", "secondary"];
           this.timer = setInterval(this.decrement, 50);
         });
@@ -93,6 +94,10 @@
 
   .headline {
     font-family: 'Pacifico', serif;
+  }
+
+  .answer-text {
+    font-weight: 200;
   }
 
   .answer {
